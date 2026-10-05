@@ -54,7 +54,8 @@ ENV PATH="/photon/.venv/bin:${PATH}" \
     IMPORT_MODE=jsonl \
     REGION=hu \
     LANGUAGES=hu,en \
-    UPDATE_STRATEGY=DISABLED
+    UPDATE_STRATEGY=DISABLED \
+    BASE_URL=https://download1.graphhopper.com/public
 
 RUN chmod 644 /photon/photon.jar && \
     chown -R photon:photon /photon
