@@ -24,7 +24,7 @@ RUN uv sync --locked --no-dev --no-install-project
 FROM eclipse-temurin:21.0.9_10-jre-noble@sha256:d3eb69add1874bc785382d6282db53a67841f602a1139dee6c4a1221d8c56568
 
 ARG DEBIAN_FRONTEND=noninteractive
-ARG PHOTON_VERSION
+ARG PHOTON_VERSION=1.3.0
 ARG PUID=9011
 ARG PGID=9011
 
