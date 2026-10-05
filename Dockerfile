@@ -50,7 +50,11 @@ COPY entrypoint.sh .
 COPY --from=builder /photon/.venv /photon/.venv
 
 ENV PATH="/photon/.venv/bin:${PATH}" \
-    VIRTUAL_ENV=/photon/.venv
+    VIRTUAL_ENV=/photon/.venv \
+    IMPORT_MODE=jsonl \
+    REGION=hu \
+    LANGUAGES=hu,en \
+    UPDATE_STRATEGY=DISABLED
 
 RUN chmod 644 /photon/photon.jar && \
     chown -R photon:photon /photon

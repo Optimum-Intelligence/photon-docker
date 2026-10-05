@@ -6,13 +6,12 @@ services:
             args:
                 - PHOTON_VERSION=${PHOTON_VERSION}
         environment:
-            - UPDATE_STRATEGY=SEQUENTIAL
-            - UPDATE_INTERVAL=3m
+            - IMPORT_MODE=jsonl
+            - REGION=hu
+            - LANGUAGES=hu,en
+            - UPDATE_STRATEGY=DISABLED
             # - LOG_LEVEL=DEBUG
             # - FORCE_UPDATE=TRUE
-            # - REGION=andorra
-            # - BASE_URL=https://r2.koalasec.org/public
-            # - SKIP_MD5_CHECK=TRUE
         volumes:
             - photon_data:/photon/data
         restart: unless-stopped

@@ -1,13 +1,17 @@
 services:
     photon:
-        image: ghcr.io/rtuszik/photon-docker:latest@sha256:729f883612bde3215c156111b421d8e0a27b1eb411b92ef4a24bd587b8259b04
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                - PHOTON_VERSION=1.3.0
         container_name: "photon-docker"
         environment:
-            - UPDATE_STRATEGY=PARALLEL
-            - UPDATE_INTERVAL=30d
+            - IMPORT_MODE=jsonl
+            - REGION=hu
+            - LANGUAGES=hu,en
+            - UPDATE_STRATEGY=DISABLED
             - LOG_LEVEL=INFO # Options: DEBUG, INFO, ERROR
-            # - BASE_URL=https://r2.koalasec.org/public
-            # - REGION=andorra
         volumes:
             - photon_data:/photon/data
         restart: unless-stopped
